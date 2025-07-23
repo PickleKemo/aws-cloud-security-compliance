@@ -14,7 +14,7 @@ Examples of behavior that contributes to a positive environment include:
 Project maintainers are responsible for clarifying standards and enforcing them.
 
 ## Enforcement
-Instances of abusive behavior may be reported by contacting the project team at conduct@yourdomain.com.
+Instances of abusive behavior may be reported by contacting the project team at haytam-aomran@hotmail.com.
 
 ## Attribution
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.0.
