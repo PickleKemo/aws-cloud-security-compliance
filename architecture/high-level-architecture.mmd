@@ -1,82 +1,83 @@
 flowchart TD
-    subgraph User Access Layer
-        A1[User Devices]
-        A2[Admin Console]
-        A3[SSO/Identity Provider]
+    %% Layers
+    subgraph "User Access Layer"
+        A1["User Devices"];
+        A2["Admin Console"];
+        A3["SSO/Identity Provider"];
     end
 
-    subgraph Network Layer
-        B1[AWS VPC]
-        B2[AWS Security Groups / NACLs]
-        B3[AWS Network Firewall]
+    subgraph "Network Layer"
+        B1["AWS VPC"];
+        B2["AWS Security Groups / NACLs"];
+        B3["AWS Network Firewall"];
     end
 
-    subgraph Security Services
-        C1[Amazon GuardDuty (IDS)]
-        C2[AWS CloudTrail (Audit Logs)]
-        C3[AWS Config (Compliance Monitoring)]
-        C4[AWS Security Hub (Aggregation)]
-        C5[Third-Party IDS/IPS (Optional)]
+    subgraph "Security Services"
+        C1["Amazon GuardDuty (IDS)"];
+        C2["AWS CloudTrail (Audit Logs)"];
+        C3["AWS Config (Compliance Monitoring)"];
+        C4["AWS Security Hub (Aggregation)"];
+        C5["Third-Party IDS/IPS (Optional)"];
     end
 
-    subgraph Compute & Data Layer
-        D1[EC2 Instances]
-        D2[RDS / Databases]
-        D3[S3 Buckets]
-        D4[Lambda Functions]
+    subgraph "Compute & Data Layer"
+        D1["EC2 Instances"];
+        D2["RDS / Databases"];
+        D3["S3 Buckets"];
+        D4["Lambda Functions"];
     end
 
-    subgraph Management & Monitoring
-        E1[AWS IAM]
-        E2[AWS KMS (Encryption)]
-        E3[CloudWatch (Monitoring/Alarms)]
-        E4[AWS Systems Manager]
-        E5[SNS (Alerting)]
+    subgraph "Management & Monitoring"
+        E1["AWS IAM"];
+        E2["AWS KMS (Encryption)"];
+        E3["CloudWatch (Monitoring/Alarms)"];
+        E4["AWS Systems Manager"];
+        E5["SNS (Alerting)"];
     end
 
     %% User access flows
-    A1 --> A3
-    A2 --> A3
-    A3 --> E1
-    E1 --> B1
+    A1 --> A3;
+    A2 --> A3;
+    A3 --> E1;
+    E1 --> B1;
 
     %% Traffic flow through network
-    A1 --> B2
-    B2 --> B3
-    B3 --> D1
-    B3 --> D2
-    B3 --> D3
-    B3 --> D4
+    A1 --> B2;
+    B2 --> B3;
+    B3 --> D1;
+    B3 --> D2;
+    B3 --> D3;
+    B3 --> D4;
 
     %% Security services connections
-    B1 --> C1
-    B1 --> C5
-    B1 --> C2
-    B1 --> C3
-    B1 --> C4
+    B1 --> C1;
+    B1 --> C5;
+    B1 --> C2;
+    B1 --> C3;
+    B1 --> C4;
 
-    %% Compute/data monitored and protected
-    D1 --> E3
-    D2 --> E3
-    D3 --> E3
-    D4 --> E3
+    %% Compute/data monitoring & protection
+    D1 --> E3;
+    D2 --> E3;
+    D3 --> E3;
+    D4 --> E3;
 
-    D1 --> E2
-    D2 --> E2
-    D3 --> E2
+    D1 --> E2;
+    D2 --> E2;
+    D3 --> E2;
 
     %% Compliance and auditing
-    C2 --> C4
-    C3 --> C4
+    C2 --> C4;
+    C3 --> C4;
 
     %% Alerting and management
-    C1 --> E5
-    C4 --> E5
-    E3 --> E5
+    C1 --> E5;
+    C4 --> E5;
+    E3 --> E5;
 
     %% Automation and remediation
-    C4 --> E4
-    E4 --> D1
-    E4 --> D2
-    E4 --> D3
-    E4 --> D4
+    C4 --> E4;
+    E4 --> D1;
+    E4 --> D2;
+    E4 --> D3;
+    E4 --> D4;
