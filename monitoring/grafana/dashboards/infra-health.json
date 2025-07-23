@@ -1,0 +1,27 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1623860223174,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {"defaults": {}, "overrides": []},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "id": 1,
+      "options": {"legend": {"displayMode": "list", "placement": "bottom"}},
+      "targets": [
+        {"expr": "avg(node_cpu_seconds_total) by (instance)", "format": "time_series", "refId": "A"}
+      ],
+      "title": "EC2 CPU Utilization",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "Infrastructure Health",
+  "uid": "infra-health",
+  "version": 1
+}
