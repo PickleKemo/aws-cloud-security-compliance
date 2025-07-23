@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "config:Describe*",
+        "config:Get*",
+        "config:List*",
+        "guardduty:Get*",
+        "guardduty:List*",
+        "securityhub:Get*",
+        "securityhub:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
