@@ -14,7 +14,7 @@ A ready-to-deploy, open-source reference for implementing robust security, compl
 ## High-Level Architecture
 
 ```mermaid
-flowchart TD
+graph TD
     subgraph User Access Layer
         A1[User Devices]
         A2[Admin Console]
