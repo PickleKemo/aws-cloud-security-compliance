@@ -105,4 +105,28 @@ This project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`)
 - **plan**: Generates and uploads a plan artifact.
 - **apply**: Applies the plan on `main` branch after manual `/apply` approval.
 
+## Monitoring & Observability (Open-Source Docker)
+
+We provide a Docker Compose setup to spin up Prometheus, Grafana, Loki (logs), Promtail (log shipper), and Tempo (tracing):
+
+```bash
+cd monitoring
+docker-compose up -d
+```
+
+- **Prometheus**: Metrics collection & storage (`monitoring/prometheus/prometheus.yml`)
+- **Grafana**: Dashboards pre-provisioned (`monitoring/grafana`)
+- **Loki & Promtail**: Log aggregation (`monitoring/loki`, `monitoring/loki/promtail-config.yaml`)
+- **Tempo**: Distributed tracing backend (`monitoring/tempo/config.yaml`)
+
+Dashboards available:
+- Security Overview (`security-overview.json`)
+- Infrastructure Health (`infra-health.json`)
+
+
+This project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) to automate Terraform deployment:
+- **validate**: Checks Terraform format and validates configuration.
+- **plan**: Generates and uploads a plan artifact.
+- **apply**: Applies the plan on `main` branch after manual `/apply` approval.
+
 Configure AWS credentials in your repository **Settings → Secrets** (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`).
